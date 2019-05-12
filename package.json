@@ -3,9 +3,12 @@
     "version": "0.0.2",
     "private": true,
     "scripts": {
-        "start": "node app"
+        "start": "node app",
+        "deploy": "node ./publish.js"
     },
-    "dependencies": {
-    "static-cling": "~0.1.6"
-  }
+    "dependencies": {},
+    "devDependencies": {
+        "gh-pages": "^2.0.1",
+        "static-cling": "^2.0.3"
+    }
 }
