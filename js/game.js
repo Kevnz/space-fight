@@ -1,4 +1,4 @@
- 
+
 var gameInit = function () {
 
     Crafty.init();
@@ -58,7 +58,7 @@ var gameInit = function () {
                 console.log(temphity)
                 Crafty.e("Damage").attr({
                     x:temphitx,
-                    y:temphity,  
+                    y:temphity,
                     zIndex: 5
                 });
                 if(this.status === 0){
@@ -111,7 +111,7 @@ var gameInit = function () {
                 yspeed = Crafty.math.randomInt(-2, 2);
                 Crafty.e("Actor, RandomSmallAstroid")
                 .attr({  xspeed: xspeed, yspeed: yspeed, x: tempX, y: tempY, status:5})
-                .origin("center") 
+                .origin("center")
                 .onHit("bullet", function (e) {
                     this.status = this.status -1;
                     if(this.status === 0){
@@ -152,7 +152,7 @@ var gameInit = function () {
                     }
                 });
             };
-            
+
             console.log('end generateSmallAstroids');
         };
         var generateAstroid = function (location) {
@@ -165,7 +165,7 @@ var gameInit = function () {
             var rotation = (((Math.atan2(yspeed, xspeed))*(180/Math.PI)) * -1) + 90; //offset 90 for sprite
             Crafty.e("Actor, RandomAstroid")
             .attr({rotation:rotation, xspeed: xspeed, yspeed: yspeed, x: x, y: y, status:10})
-            .origin("center") 
+            .origin("center")
             .collision(new Crafty.polygon([0,65],[65,65],[65,0],[0,0]))
             .onHit("bullet", function (e) {
                 this.status = this.status -1;
@@ -195,7 +195,7 @@ var gameInit = function () {
                 Crafty.trigger('astroidDestroyed', {x: x, y: y});
             })
             .bind("EnterFrame", function(e) {
-  
+
                 this.x += this.xspeed;
                 this.y -= this.yspeed;
 

@@ -7,29 +7,37 @@
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0/build/cssreset/cssreset-min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0/build/cssfonts/cssfonts-min.css">
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.8.0/build/cssbase/cssbase-min.css">
-    <script src="http://yui.yahooapis.com/3.8.0/build/yui/yui-min.js"></script>
+
     <script src="js/lib/crafty.js"></script>
   </head>
   <body class="yui3-skin-sam">
-    <div id="mainnav" class="yui3-menu yui3-menu-horizontal">
-      <div class="yui3-menu-content">
-        <ul>
-          <li role="presentation" class="yui3-menuitem"><a href="http://kevnz.github.com/space-fight/" role="menuitem" tabindex="0" class="yui3-menuitem-content">Home</a><a href="http://kevnz.github.com/space-fight/game.html" role="menuitem" tabindex="0" class="yui3-menuitem-content">Play</a></li>
-        </ul>
-      </div>
-    </div>
     <div class="intro">
       <p>Welcome to Space Fight</p>
     </div>
     <script src="js/game.js"></script>
     <script src="js/components.js"></script>
     <script>
-      YUI().use('node-base', 'event-base', 'node-menunav', function (Y) {
-          Y.on('domready', gameInit);
-      });
-    </script>
-    <script type="text/javascript">
+      function ready(fn) {
+        if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading"){
+          fn();
+        } else {
+          document.addEventListener('DOMContentLoaded', fn);
+        }
+      }
 
+      ready(gameInit)
+
+      // gameInit
     </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-1847639-7"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-1847639-7');
+    </script>
+
   </body>
 </html>
